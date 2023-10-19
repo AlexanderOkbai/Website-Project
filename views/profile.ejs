@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        box-sizing: border-box;
+        background-color: #1f1c1c;
+      }
+      .photob {
+        width: 100%;
+        height: 100%;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        width: 400px;
+        background: #1f1c1c;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        color: #333;
+      }
+      .card h1 {
+        font-weight: 500;
+        color: #000;
+      }
+      .card img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        margin-top: 40px;
+        margin-bottom: 30px;
+      }
+      label {
+        display: block;
+        width: 200px;
+        background: #0e0442;
+        color: #fff;
+        padding: 12px;
+        margin: 10px auto;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="photob">
+      <div class="card">
+        <img
+          src="C:\Users\previ\OneDrive\Desktop\Final Project 22\Final Project\images\profile.png"
+          id="profile-pic"
+        />
+        <label for="input-file">update image</label>
+        <input
+          type="file"
+          accept="image/jpeg, image/png , image/jpg"
+          id="input-file"
+        />
+        +
+        <form action="/profile" method="post" enctype="multipart/form-data">
+          <input type="file" name="image" />
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+    <script>
+      let profilePic = document.getElementById("profile-pic");
+      let inputFile = document.getElementById("input-file");
+
+      inputFile.onchange = function () {
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+      };
+    </script>
+  </body>
+</html>
